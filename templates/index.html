@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Stable Diffusion Image Generator</title>
     <style>
         #loading {
@@ -26,15 +27,18 @@
         <img src="{{ url_for('static', filename='loading.gif') }}" alt="Loading...">
         <p>Generating image, please wait...</p>
     </div>
+    
     {% if image %}
         <h2>Generated Image for: "{{ prompt }}"</h2>
         <img src="{{ image }}" alt="Generated Image" style="max-width: 100%; height: auto;">
+        
+        <a href="{{ image }}" download="generated_image.png">
+            <button type="button">Download Image</button>
+        </a>
     {% endif %}
+
     {% if error %}
-        <h2 style="color: red;">Error: {{ error }}</h2>
+        <h2 class="error">Error: {{ error }}</h2>
     {% endif %}
 </body>
 </html>
-
-
-
