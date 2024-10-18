@@ -4,41 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <title>Stable Diffusion Image Generator</title>
-    <style>
-        #loading {
-            display: none;
-            text-align: center;
-        }
-    </style>
-    <script>
-        function showLoading() {
-            document.getElementById('loading').style.display = 'block';
-        }
-    </script>
 </head>
 <body>
     <h1>Stable Diffusion Image Generator</h1>
     <form action="/" method="post" onsubmit="showLoading()">
-        <input type="text" name="prompt" placeholder="Enter your prompt here" required>
-        <button type="submit">Send</button>
+        <input type="text" name="prompt" placeholder="Seja criativo..." required>
+        <button type="submit">Enviar</button>
     </form>
+
     <div id="loading">
-        <img src="{{ url_for('static', filename='loading.gif') }}" alt="Loading...">
-        <p>Generating image, please wait...</p>
+        <img src="{{ url_for('static', filename='loading.gif') }}" alt="Carregando...">
+        <p>Gerando imagem, por favor aguarde...</p>
     </div>
-    
+
+    <section>
     {% if image %}
-        <h2>Generated Image for: "{{ prompt }}"</h2>
-        <img src="{{ image }}" alt="Generated Image" style="max-width: 100%; height: auto;">
-        
-        <a href="{{ image }}" download="generated_image.png">
-            <button type="button">Download Image</button>
-        </a>
+        <div class="card">
+            <h2>Generated Image for: "{{ prompt }}"</h2>
+            <img src="{{ image }}" alt="Generated Image">
+            <a href="{{ image }}" download="generated_image.png">
+                <button type="button">Baixar imagem</button>
+            </a>
+        </div>
     {% endif %}
+    </section>
 
     {% if error %}
         <h2 class="error">Error: {{ error }}</h2>
     {% endif %}
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
