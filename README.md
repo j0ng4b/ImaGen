@@ -30,3 +30,6 @@ Feito todo o processo anterior chegou a parte mais simples, execute no terminal 
 
 Dependento do sistema operacional os comandos podem ter variações, por exemplo, no Windows pode ser  
 necessário trocar `python` por `py.exe`.
+
+Tudo correndo bem é possível acessar o projeto no navegador atráves do link que é exibido na tela do  
+terminal.
