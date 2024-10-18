@@ -35,6 +35,10 @@ def create_app():
         }
 
         response = requests.post(url, headers=headers, json=payload)
+        if response.status_code != 200:
+            error = json.loads(response.text)['message']
+            return render_template('index.html', error=error)
+
         process_id = json.loads(response.text)['process_id']
 
         url = f"https://api.monsterapi.ai/v1/status/{process_id}"
