@@ -10,14 +10,14 @@
     <title>Stable Diffusion Image Generator</title>
 </head>
 <body>
-    <h1>Stable Diffusion Image Generator</h1>
+    <h1>ImaGen</h1>
     <form action="/" method="post" onsubmit="showLoading()">
-        <input type="text" name="prompt" placeholder="Seja criativo..." required>
-        <button type="submit">Enviar</button>
+        <input type="text" name="prompt" placeholder="Enter your prompt here..." required>
+        <button type="submit">Send</button>
     </form>
 
     <div id="loading">
-        <img src="{{ url_for('static', filename='loading.gif') }}" alt="Carregando...">
+        <img src="{{ url_for('static', filename='loading.gif') }}" alt="Loading...">
         <p>Gerando imagem, por favor aguarde...</p>
     </div>
 
@@ -27,7 +27,7 @@
             <h2>Generated Image for: "{{ prompt }}"</h2>
             <img src="{{ image }}" alt="Generated Image">
             <a href="{{ image }}" download="generated_image.png">
-                <button type="button">Baixar imagem</button>
+                <button type="button">Download Image</button>
             </a>
         </div>
     {% endif %}
