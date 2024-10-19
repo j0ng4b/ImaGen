@@ -19,8 +19,10 @@ def create_app():
     @app.route('/', methods=['POST'])
     def generate():
         prompt = request.form['prompt']
+        negprompt = request.form['negprompt']
         url = "https://api.monsterapi.ai/v1/generate/txt2img"
-
+        print(f"Prompt: {prompt}")
+        print(f"Negative Prompt: {negprompt}")
         headers = {
             "accept": "application/json",
             "content-type": "application/json",
@@ -29,6 +31,7 @@ def create_app():
 
         payload = {
             "prompt": prompt,
+            "negprompt": negprompt,
             "safe_filter": False,
             "aspect_ratio": "square",
             "style": "realism",
