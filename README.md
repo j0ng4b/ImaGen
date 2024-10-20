@@ -7,7 +7,7 @@ Abaixo os passos para executar o projeto:
 **Instalar dependências**  
 Para instalar as dependências é bem simples, basta executar o seguinte comoando no terminal:
 
-    pip -r requirements.txt
+    pip install -r requirements.txt
 
 Após o comando finalizar todas as dependências terão sido instaladas.
 
